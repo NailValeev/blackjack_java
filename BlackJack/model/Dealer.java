@@ -57,5 +57,11 @@ public class Dealer extends Player {
     }
     return false;
   }
+
+
+public boolean Stand(Player m_player) {
+	// TODO Auto-generated method stub
+	return false;
+}
   
 }

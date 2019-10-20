@@ -60,7 +60,12 @@ public class Dealer extends Player {
 
 
 public boolean Stand(Player m_player) {
-	// TODO Auto-generated method stub
+	if (m_deck != null) {
+		ShowHand();
+		while (m_hitRule.DoHit(this)) {
+			Hit(this);
+		}
+	}
 	return false;
 }
   

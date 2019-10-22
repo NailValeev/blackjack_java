@@ -7,7 +7,7 @@ public class SimpleView implements IView
         {
           for(int i = 0; i < 50; i++) {System.out.print("\n");}; 
           System.out.println("Hello Black Jack World");
-          System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+          System.out.println("Type '" + PLAY_CODE + "' to Play, '" + HIT_CODE + "' to Hit, '" + STAND_CODE + "' to Stand or '" + QUIT_CODE + "' to Quit\n");
         }
 
         public int GetInput()

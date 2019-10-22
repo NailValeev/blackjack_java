@@ -9,7 +9,7 @@ public class SwedishView implements IView
 
             System.out.println("Hej Black Jack Världen");
             System.out.println("----------------------");
-            System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+            System.out.println("Skriv '" + PLAY_CODE + "' för att Spela, '" + HIT_CODE + "' för nytt kort, '" + STAND_CODE + "' för att stanna eller '" + QUIT_CODE + "' för att avsluta\n");
         }
         
         public int GetInput()

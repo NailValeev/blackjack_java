@@ -15,6 +15,10 @@ public class Player {
     System.out.println("Hello List World");
   }
   
+  public int getMaxScore() {
+	  return g_maxScore;
+  }
+  
   public void DealCard(Card a_addToHand)
   {
     m_hand.add(a_addToHand);

@@ -67,7 +67,6 @@ public class Game extends Observable implements Observer {
 @Override
 public void update(Observable o, Object arg) {
 	if(arg == "newCard"){
-		System.out.println("Boo");
 	    setChanged();
 	    notifyObservers("redraw");
 	}

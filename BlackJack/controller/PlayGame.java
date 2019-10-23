@@ -18,12 +18,9 @@ public class PlayGame implements Observer {
 	}
 
 	public boolean Play() {
+	
+		updateView(true);
 		
-		a_view.DisplayWelcomeMessage();
-		
-		DisplayScores();
-
-
 		if (a_game.IsGameOver())
 		{
 			a_view.DisplayGameOver(a_game.IsDealerWinner());
@@ -47,16 +44,21 @@ public class PlayGame implements Observer {
 		return input != IView.QUIT_CODE;
 	}
 
-	private void DisplayScores() {
-		a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-		a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+	private void updateView(boolean isReady) {
+		try {
+			 Thread.sleep(1700);
+			 a_view.DisplayWelcomeMessage(isReady);
+			 a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
+			 a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		if(arg == "redraw"){
-			System.out.println("XXXXX");
-			DisplayScores();
+				 updateView(false); 
 		}
 	}
 }

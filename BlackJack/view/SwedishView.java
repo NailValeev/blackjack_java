@@ -2,14 +2,18 @@ package BlackJack.view;
 
 public class SwedishView implements IView 
     {
-        public void DisplayWelcomeMessage()
+        public void DisplayWelcomeMessage(boolean isReady)
         {
          
             for(int i = 0; i < 50; i++) {System.out.print("\n");};
 
             System.out.println("Hej Black Jack Världen");
             System.out.println("----------------------");
-            System.out.println("Skriv '" + PLAY_CODE + "' för att Spela, '" + HIT_CODE + "' för nytt kort, '" + STAND_CODE + "' för att stanna eller '" + QUIT_CODE + "' för att avsluta\n");
+    		String message = isReady ? 
+    				("Skriv '" + PLAY_CODE + "' för att Spela, '" + HIT_CODE + "' för nytt kort, '" + STAND_CODE + "' för att stanna eller '" + QUIT_CODE + "' för att avsluta\n") 
+    				: 
+    				"Vänta lite, delar ut kort...";
+    		System.out.println(message);
         }
         
         public int GetInput()

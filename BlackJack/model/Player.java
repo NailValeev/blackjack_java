@@ -9,10 +9,9 @@ public class Player {
   protected final int g_maxScore = 21;
 
   public Player()
-  {
-  
+  { 
     m_hand = new LinkedList<Card>();
-    System.out.println("Hello List World");
+    // System.out.println("Hello List World");
   }
   
   public int getMaxScore() {
@@ -75,4 +74,21 @@ public class Player {
 
     return score;
   }
+  
+  // With this solution class has low cohesion (getting, keeping, counting cards). I will use another one
+  /*
+	public void TakeCard(Deck d, boolean isVisible) {
+		Card c = d.GetCard();
+		c.Show(isVisible);
+		DealCard(c);
+	}
+   */	
+  
+  // This solution is better, entire class still have high cohesion.
+  // Method functionality will not affect class cohesion, it has functionality already existing in other methods
+  // Moreover, it has more loose coupling (method does not know about Deck class)
+	public void TakeCard(Card c, boolean isVisible) {
+		c.Show(isVisible);
+		DealCard(c);
+	}
 }

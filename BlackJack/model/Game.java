@@ -1,6 +1,9 @@
 package BlackJack.model;
 
-public class Game {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Game extends Observable implements Observer {
 
   private Dealer m_dealer;
   private Player m_player;
@@ -9,6 +12,9 @@ public class Game {
   {
     m_dealer = new Dealer(new BlackJack.model.rules.RulesFactory());
     m_player = new Player();
+    
+    m_dealer.addObserver(this);
+    m_player.addObserver(this);
   }
     
     
@@ -56,6 +62,16 @@ public class Game {
   {
     return m_player.CalcScore();
   }
+
+
+@Override
+public void update(Observable o, Object arg) {
+	if(arg == "newCard"){
+		System.out.println("Boo");
+	    setChanged();
+	    notifyObservers("redraw");
+	}
+}
     
   
 }

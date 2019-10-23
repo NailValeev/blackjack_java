@@ -1,9 +1,10 @@
 package BlackJack.model;
 
 import java.util.List;
+import java.util.Observable;
 import java.util.LinkedList;
 
-public class Player {
+public class Player extends Observable {
 
   private List<Card> m_hand;
   protected final int g_maxScore = 21;
@@ -90,5 +91,7 @@ public class Player {
 	public void TakeCard(Card c, boolean isVisible) {
 		c.Show(isVisible);
 		DealCard(c);
+	    setChanged();
+	    notifyObservers("newCard");
 	}
 }

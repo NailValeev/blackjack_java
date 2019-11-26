@@ -8,7 +8,8 @@ public class Game extends Observable implements Observer {
   private Dealer m_dealer;
   private Player m_player;
 
-  public Game()
+  @SuppressWarnings("deprecation")
+public Game()
   {
     m_dealer = new Dealer(new BlackJack.model.rules.RulesFactory());
     m_player = new Player();

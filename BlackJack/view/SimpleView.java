@@ -32,10 +32,15 @@ public class SimpleView implements IView
 	{
 		String text =  a_card.GetValue() + " of " + a_card.GetColor();
 		
+		int delay = a_card.isM_isShown()? 0 : 70;
+		String divider = a_card.isM_isShown()? "" : "_";
+		
+		a_card.setM_isShown(true);
+		
 		for (int index = 0; index < text.length(); index ++) {
 			try {
-				 Thread.sleep(50);
-				 System.out.print(text.charAt(index));
+				 Thread.sleep(delay);
+				 System.out.print(text.charAt(index) + divider);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

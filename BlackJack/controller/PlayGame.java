@@ -46,7 +46,7 @@ public class PlayGame implements Observer {
 
 	private void updateView(boolean isReady) {
 		try {
-			 Thread.sleep(1700);
+			 Thread.sleep(1000);
 			 a_view.DisplayWelcomeMessage(isReady);
 			 a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
 			 a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());

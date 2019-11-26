@@ -27,7 +27,7 @@ public class Dealer extends Player {
 			m_deck = new Deck();
 			ClearHand();
 			a_player.ClearHand();
-			return m_newGameRule.NewGame(m_deck, this, a_player);   
+			return m_newGameRule.NewGame(this, a_player);   
 		}
 		return false;
 	}
@@ -35,7 +35,7 @@ public class Dealer extends Player {
 	public boolean Hit(Player a_player) {
 		if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
 
-			a_player.TakeCard(m_deck.GetCard(), true);
+			GiveCard(a_player, true);
 
 			return true;
 		}
@@ -62,6 +62,15 @@ public class Dealer extends Player {
 			}
 		}
 		return false;
+	}
+		
+	  
+	// This approach is a best from low coupling / high cohesion point of view.
+	// It doesn't take a card or deck as parameter, because Dealer already has a deck  
+	public void GiveCard(Player a_player, boolean isVisible) {
+		Card card = m_deck.GetCard();
+		card.Show(isVisible);
+		a_player.DealCard(card); // This method will notify observers
 	}
 
 }
